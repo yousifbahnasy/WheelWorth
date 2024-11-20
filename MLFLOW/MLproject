@@ -1,0 +1,32 @@
+
+name: CarPrices-processing
+
+conda_env: conda.yaml
+
+entry_points:
+
+  random:
+    parameters:
+      n: {type: int, default: 350}
+      d: {type: int, default: 15}
+    command: "python random_script.py -n {n} -d {d}"
+  
+    logistic:
+    parameters:
+      c: {type: float, default: 2.5}
+    command: "python logistic_script.py -c {c} "
+
+  xgboost:
+    parameters:
+      n: {type: int, default: 350}
+      lr: {type: float, default: 0.1}
+      d: {type: int, default: 15}
+    command: "python xgboost_script.py -n {n} -lr {lr} -d {d}"
+
+
+  gradient:
+    parameters:
+      n: {type: int, default: 100}
+      d: {type: int, default: 10}
+    command: "python gradient_script.py -n {n} -d {d}"
+        
